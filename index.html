@@ -2321,6 +2321,24 @@ img.sos-avatar { object-fit: cover; }
   .founder__name { font-size:14px; }
   .founder__role { font-size:9px; letter-spacing:0.02em; }
   .founder__exp, .founder__line, .founder__tag { display:none; }
+
+  /* — Header : afficher les 2 colonnes de droite (cacher les 2 de gauche) — */
+  .hero-bg__col:nth-child(1), .hero-bg__col:nth-child(2) { display:none !important; }
+  .hero-bg__col:nth-child(3), .hero-bg__col:nth-child(4) { display:flex !important; }
+
+  /* — Étape 2 : masquer les lignes de pilules 2 et 5 (moins de surcharge) — */
+  .m3row:nth-child(2), .m3row:nth-child(5) { display:none; }
+
+  /* — Cycle : illustrations réduites, cards compactes en ligne — */
+  .cyc-step { flex-direction:row; align-items:center; gap:12px; padding:12px; }
+  .cyc-step__mock { flex:0 0 88px; }
+  .cmock { width:88px; height:82px; padding:8px; border-radius:10px; }
+  .cyc-step__t { font-size:15px; }
+  .cyc-step__b { font-size:12px; margin-top:5px; line-height:1.45; }
+  .cyc-badge { top:8px; right:8px; }
+
+  /* — Tarifs : la carte Pro (et donc le toggle juste au-dessus) en premier — */
+  .pricing-card.featured { order:-1; }
 }
 
 @media (max-width: 400px) {
