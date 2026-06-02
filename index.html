@@ -2335,10 +2335,14 @@ img.sos-avatar { object-fit: cover; }
   .cmock { width:88px; height:82px; padding:8px; border-radius:10px; }
   .cyc-step__t { font-size:15px; }
   .cyc-step__b { font-size:12px; margin-top:5px; line-height:1.45; }
-  .cyc-badge { top:8px; right:8px; }
+  /* badge certifié minimaliste : icône seule, dans l'angle sur l'illustration (ne cache plus le texte) */
+  .cyc-badge { top:6px; left:6px; right:auto; padding:3px; gap:0; border-radius:8px; }
+  .cyc-badge__t { display:none; }
+  .cyc-badge__ic { width:15px; height:15px; }
 
-  /* — Tarifs : la carte Pro (et donc le toggle juste au-dessus) en premier — */
-  .pricing-card.featured { order:-1; }
+  /* — Tarifs : carte Gratuite (0 €) en premier — */
+  .pricing-card { order:0; }
+  .pricing-card.featured { order:1; }
 }
 
 @media (max-width: 400px) {
