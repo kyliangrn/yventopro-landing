@@ -1,0 +1,12 @@
+# OS
+.DS_Store
+**/.DS_Store
+
+# Local tooling / agents (not part of the site)
+.claude/
+.agents/
+ui-ux-pro-max-skill/
+skills-lock.json
+
+# Backups
+*BACKUP*.html
