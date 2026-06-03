@@ -125,9 +125,9 @@ nav.scrolled .btn-org:hover{color:var(--ink);border-color:var(--ink);background:
 /* ── HERO (mur de photos en fond, défilant + voile clair) ── */
 .hero{position:relative;overflow:hidden;background:var(--bg);padding:172px 0 110px;text-align:center;min-height:88vh;display:flex;align-items:center}
 .hero-wall{position:absolute;inset:0;z-index:0;display:flex;gap:18px;justify-content:center;padding:0 1%}
-.hero-wall .col{flex:1 1 0;display:flex;flex-direction:column;gap:18px;height:max-content;animation:wallUp 64s linear infinite;will-change:transform}
-.hero-wall .col--down{animation-name:wallDown;animation-duration:78s}
-.hero-wall .col--slow{animation-duration:92s}
+.hero-wall .col{flex:1 1 0;display:flex;flex-direction:column;gap:18px;height:max-content;animation:wallUp 118s linear infinite;will-change:transform}
+.hero-wall .col--down{animation-name:wallDown;animation-duration:142s}
+.hero-wall .col--slow{animation-duration:168s}
 .hero-wall img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:16px;filter:saturate(1.02)}
 @keyframes wallUp{from{transform:translateY(0)}to{transform:translateY(-50%)}}
 @keyframes wallDown{from{transform:translateY(-50%)}to{transform:translateY(0)}}
@@ -360,9 +360,9 @@ nav.scrolled .btn-org:hover{color:var(--ink);border-color:var(--ink);background:
 
 /* ── RÉSEAU CERTIFIÉ (section sombre) ── */
 .tw-section{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;overflow:hidden}
-.certif-map{position:absolute;inset:0;z-index:0;background:url("assets/netmap.svg") center center / cover no-repeat;opacity:.55;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 55%,transparent 92%);mask-image:radial-gradient(ellipse at 50% 50%,#000 55%,transparent 92%)}
+.certif-map{position:absolute;inset:0;z-index:0;background:url("assets/netmap.svg") center center / cover no-repeat;opacity:.7;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse at 50% 45%,#000 38%,transparent 88%);mask-image:radial-gradient(ellipse at 50% 45%,#000 38%,transparent 88%)}
 .tw-section .wrap{position:relative;z-index:1}
-.certif{position:relative;text-align:center;max-width:760px;margin:0 auto;padding:54px 46px;border-radius:26px;background:var(--bg);border:1px solid var(--line);box-shadow:0 30px 70px -40px rgba(21,24,31,0.22);overflow:hidden}
+.certif{position:relative;text-align:center;max-width:760px;margin:0 auto;padding:54px 46px;border-radius:26px;background:rgba(252,251,248,0.72);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);border:1px solid var(--line);box-shadow:0 30px 70px -40px rgba(21,24,31,0.22);overflow:hidden}
 .certif::before{content:'';position:absolute;top:-45%;left:50%;transform:translateX(-50%);width:640px;height:440px;background:radial-gradient(ellipse,rgba(244,97,26,0.08),transparent 70%);pointer-events:none;z-index:0}
 .certif>*{position:relative;z-index:1}
 .certif .eyebrow{color:var(--accent)}
@@ -420,18 +420,45 @@ details p{padding:0 4px 24px;font-size:14.5px;color:var(--slate);line-height:1.6
 @media (max-width:640px){
   section{padding:76px 0}
   .wrap{padding:0 20px}
-  .hero{padding:140px 0 80px;min-height:auto}
+  .hero{padding:118px 0 56px;min-height:auto}
+  .hero-wall{gap:9px;padding:0}
   .hero-wall .col:nth-child(n+4){display:none}
-  .rgrid,.team-grid,.pgrid{grid-template-columns:1fr}
+  .rgrid,.pgrid{grid-template-columns:1fr}
   .section-head{margin-bottom:40px}
-  .hero__actions{flex-direction:column;align-items:stretch}
-  .hero__actions .btn{justify-content:center}
+  /* CTA hero : réduits, centrés, non pleine largeur */
+  .hero__actions{flex-direction:column;align-items:center;gap:9px}
+  .hero__actions .btn{width:auto;padding:11px 20px;font-size:13.5px}
   .cta__box{padding:52px 24px}
+  /* tarifs : carte Gratuit en premier */
   .pgrid{max-width:380px}
-  .pcard--pro{order:-1}
   .certif{padding:38px 22px}
+  .btn-filled-sm{font-size:12px;padding:8px 13px}
   .btn-filled-sm .btn-label-full{display:none}
   .btn-filled-sm .btn-label-min{display:inline}
+  /* Match : cacher la pilule Lyon, alléger la phrase */
+  .vs__tags .vs__tag:nth-child(3){display:none}
+  .rcard__benef{font-size:12px;white-space:nowrap}
+  .rcard__benef svg{width:15px;height:15px}
+  .rcard__note{font-size:10px}
+  /* SOS : steps 1 ligne + résultat compact recentré */
+  .sosx__steps li{font-size:12.5px}
+  .sosres{gap:9px;justify-content:center}
+  .sosres__p img{width:30px;height:30px}
+  .sosres__p b{font-size:11px}
+  .sosres__p span{font-size:9.5px}
+  .sosres__lbl{font-size:9.5px}
+  .sosres__gain{font-size:14px;padding:2px 9px}
+  /* Équipe : 3 cartes côte à côte, texte réduit */
+  .team-grid{grid-template-columns:repeat(3,1fr);gap:8px}
+  .founder{padding:9px;gap:9px;border-radius:13px}
+  .founder__body{padding:2px 3px 4px;gap:5px}
+  .founder__name{font-size:14px}
+  .founder__role{font-size:8.5px;letter-spacing:0.02em}
+  .founder__exp,.founder__line,.founder__tag{display:none}
+}
+@media (max-width:400px){
+  .founder__name{font-size:13px}
+  .founder__role{display:none}
 }
 </style>
 </head>
@@ -460,11 +487,11 @@ details p{padding:0 4px 24px;font-size:14.5px;color:var(--slate);line-height:1.6
 <!-- ══ HERO ══ -->
 <header class="hero">
   <div class="hero-wall" aria-hidden="true">
-    <div class="col"><img src="assets/videaste.png" alt="" loading="eager"><img src="assets/dj2.jpg" alt="" loading="eager"><img src="assets/videaste.png" alt=""><img src="assets/dj2.jpg" alt=""></div>
-    <div class="col col--down"><img src="assets/barman.jpg" alt="" loading="eager"><img src="assets/chanteuse.jpg" alt=""><img src="assets/barman.jpg" alt=""><img src="assets/chanteuse.jpg" alt=""></div>
-    <div class="col col--slow"><img src="assets/dj3.jpg" alt=""><img src="assets/musicien.jpg" alt=""><img src="assets/dj3.jpg" alt=""><img src="assets/musicien.jpg" alt=""></div>
-    <div class="col col--down"><img src="assets/dj4.jpg" alt=""><img src="assets/animateur.jpg" alt=""><img src="assets/dj4.jpg" alt=""><img src="assets/animateur.jpg" alt=""></div>
-    <div class="col"><img src="assets/dj.jpg" alt=""><img src="assets/videaste2.jpg" alt=""><img src="assets/dj.jpg" alt=""><img src="assets/videaste2.jpg" alt=""></div>
+    <div class="col"><img src="assets/videaste.png" alt="" loading="eager"><img src="assets/dj2.jpg" alt="" loading="eager"><img src="assets/dj3.jpg" alt=""><img src="assets/musicien.jpg" alt=""><img src="assets/videaste.png" alt=""><img src="assets/dj2.jpg" alt=""><img src="assets/dj3.jpg" alt=""><img src="assets/musicien.jpg" alt=""></div>
+    <div class="col col--down"><img src="assets/barman.jpg" alt="" loading="eager"><img src="assets/chanteuse.jpg" alt=""><img src="assets/dj4.jpg" alt=""><img src="assets/animateur.jpg" alt=""><img src="assets/barman.jpg" alt=""><img src="assets/chanteuse.jpg" alt=""><img src="assets/dj4.jpg" alt=""><img src="assets/animateur.jpg" alt=""></div>
+    <div class="col col--slow"><img src="assets/dj.jpg" alt=""><img src="assets/videaste2.jpg" alt=""><img src="assets/dj3.jpg" alt=""><img src="assets/barman.jpg" alt=""><img src="assets/dj.jpg" alt=""><img src="assets/videaste2.jpg" alt=""><img src="assets/dj3.jpg" alt=""><img src="assets/barman.jpg" alt=""></div>
+    <div class="col col--down"><img src="assets/dj4.jpg" alt=""><img src="assets/animateur.jpg" alt=""><img src="assets/musicien.jpg" alt=""><img src="assets/chanteuse.jpg" alt=""><img src="assets/dj4.jpg" alt=""><img src="assets/animateur.jpg" alt=""><img src="assets/musicien.jpg" alt=""><img src="assets/chanteuse.jpg" alt=""></div>
+    <div class="col"><img src="assets/dj.jpg" alt=""><img src="assets/videaste2.jpg" alt=""><img src="assets/videaste.png" alt=""><img src="assets/dj2.jpg" alt=""><img src="assets/dj.jpg" alt=""><img src="assets/videaste2.jpg" alt=""><img src="assets/videaste.png" alt=""><img src="assets/dj2.jpg" alt=""></div>
   </div>
   <div class="hero-veil" aria-hidden="true"></div>
   <div class="wrap">
@@ -531,7 +558,7 @@ details p{padding:0 4px 24px;font-size:14.5px;color:var(--slate);line-height:1.6
             <div class="vs__tags"><span class="vs__tag vs__tag--on">Pop/funk</span><span class="vs__tag vs__tag--on">14 sept</span><span class="vs__tag vs__tag--on">Lyon</span></div>
           </div>
         </div>
-        <div class="rcard__benef"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Mis en avant par vos compétences, pas par le prix</div>
+        <div class="rcard__benef"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Choisi pour vos compétences, pas le prix</div>
         <div class="rcard__note">Commission perçue uniquement sur un événement signé via la mise en relation.</div>
       </article>
 
@@ -544,9 +571,9 @@ details p{padding:0 4px 24px;font-size:14.5px;color:var(--slate);line-height:1.6
         <h3 class="sosx__title">Devenez <em>apporteur d'affaires</em></h3>
         <p>Déjà booké, ou vous entendez parler d'un besoin que vous ne pouvez pas traiter ? Partagez l'opportunité au réseau en un geste : un confrère s'en occupe, et <strong style="color:var(--ink)">vous touchez une commission</strong> — sans rien faire de plus.</p>
         <ol class="sosx__steps">
-          <li><span class="sosx__num">1</span> <span>Vous <b>partagez une opportunité</b> hors de votre métier</span></li>
-          <li><span class="sosx__num">2</span> <span>Un <b>confrère du réseau l'assure</b> à votre place</span></li>
-          <li><span class="sosx__num">3</span> <span>Vous <b>touchez une commission</b>, versée automatiquement</span></li>
+          <li><span class="sosx__num">1</span> <span>Vous <b>partagez une opportunité</b> hors métier</span></li>
+          <li><span class="sosx__num">2</span> <span>Un <b>confrère du réseau l'assure</b></span></li>
+          <li><span class="sosx__num">3</span> <span>Vous <b>touchez une commission</b></span></li>
         </ol>
       </div>
       <div class="sosx__viz">
